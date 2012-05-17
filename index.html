@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <title>Simple CSS Grid framework with Compass - Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="stylesheets/framework.css">
+
+  <style type="text/css" media="screen">
+    body {
+      font: 13px/18px sans-serif;
+      margin-top: 30px;
+    }
+    .page-heading {
+      font-weight: bold;
+      font: 27px/21px sans-serif;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eee
+    }
+    .example .row {
+      margin-bottom: 18px
+    }
+    .example [class*=col] {
+      color: #ddd;
+      color: #333;
+      padding: 5px 0;
+      background: #eee;
+      text-align: center;
+      -webkit-border-radius: 4px;
+         -moz-border-radius: 4px;
+              border-radius: 4px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container example">
+
+  <div class="row">
+    <h1 class="page-heading">Example</h1>
+  </div>
+
+  <div class="row">
+    <div class="col12">col12</div>
+  </div>
+
+  <div class="row">
+    <div class="col1">col1</div>
+    <div class="col10">col10</div>
+    <div class="col1">col1</div>
+  </div>
+
+  <div class="row">
+    <div class="col2">col2</div>
+    <div class="col8">col8</div>
+    <div class="col2">col2</div>
+  </div>
+
+  <div class="row">
+    <div class="col3">col3</div>
+    <div class="col6">col6</div>
+    <div class="col3">col3</div>
+  </div>
+
+  <div class="row">
+    <div class="col6">col6</div>
+    <div class="col6">col6</div>
+  </div>
+
+</div>
+
+</body>
+</html>
