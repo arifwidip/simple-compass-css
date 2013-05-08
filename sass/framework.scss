@@ -2,12 +2,12 @@
 @import "compass";
 
 /* Import reset module */
-@import "compass/reset";
+//@import "compass/reset";
 
 /* Define some variables */
 $containerWidth :   978px;
 $columnWidth :      5.5; //In percent
-$column :           12; //Twelve columns
+$column :           24; //Twelve columns
 
 
 // Let's do some math here
@@ -33,62 +33,70 @@ $columnGutter   : (100 - ($columnWidth * $column)) / ($column - 1);
 
 /* Flexible image */
 img {
-  height: auto;
-  max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 .container {
-  padding: 0 15px;
-  position: relative;
+    padding: 0 15px;
+    position: relative;
 
-  // This is mixin from compass for clearing float
-  @include pie-clearfix;
+    // This is mixin from compass for clearing float
+    @include pie-clearfix;
 }
 
 .row {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
 
-  // If you need different container width, you can easily
-  // change $containerWidth variable;
-  max-width: $containerWidth;
+    // If you need different container width, you can easily
+    // change $containerWidth variable;
+    max-width: $containerWidth;
 
-  @include pie-clearfix;
+    @include pie-clearfix;
 }
 
 // Select all element that contains class 'col'
 [class*="col"] {
-  float: left;
-  display: inline;
-  min-height: 1px;
-  position: relative;
-  margin-left: 1% * $columnGutter;
+    float: left;
+    display: inline;
+    min-height: 1px;
+    position: relative;
+    margin-left: 1% * $columnGutter;
 
-  // Get rid of margin from first column
-  &:first-child {
-    margin-left: 0;
-  }
+    // Get rid of margin from first column
+    &:first-child {
+        margin-left: 0;
+    }
 }
 
 /* --- Column Width --- */
 /* We can do iteration in sass just like we do in javascript or php */
 @for $i from 1 through $column {
-  .col#{$i} {
-    $colWidth: 1% * ($columnWidth * $i) + ($columnGutter *($i - 1));
-    width: $colWidth;
-  }
+    .col#{$i} {
+        $colWidth: 1% * ($columnWidth * $i) + ($columnGutter *($i - 1));
+        width: $colWidth;
+    }
+}
+
+/* -------offset------- */
+@for $i from 1 to $column {
+    .offset#{$i} {
+        $osWidth: 1% * ($columnWidth * $i) + ($columnGutter *($i - 1));
+        margin-left: $osWidth !important;
+    }
 }
 
 
 /*  #Mobile Phone
 ================================================== */
 @media only screen and (max-width: 767px) {
-  .row {
-    max-width: 767px;
-    [class*="col"] {
-      width: 100%;
-      margin-left: 0;
+    .row {
+        max-width: 767px;
+        [class*="col"] {
+            width: 100%;
+            margin-left: 0;
+        }
     }
-  }
 }
